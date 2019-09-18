@@ -1,0 +1,18 @@
+.navbar-default{
+	background-color: #00695c;
+}
+ul a{
+	color: white;
+}
+ul a:hover{
+	color:  #918c7e;
+}
+.navbar-brand{
+	color: white;
+}
+.navbar-brand:hover{
+	color: #918c7e;
+}
+label{
+	font-size: 12px;
+}
