@@ -23,7 +23,7 @@
    
    	<br>
    	
-   		<img id="profile-img" src="images/123.jpg" >
+   		<img id="profile-img" src="images/ii.png" >
 <p style="font-size:22px">Full Name</p>  
 
 
