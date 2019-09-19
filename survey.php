@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 			require_once ('header.php');
 ?>
     <html>
@@ -18,6 +21,9 @@
     <body>
         <center>
             <h2>Choose the correct Survey</h2><br><br><br>
+            <h4 class="container">The survey helps us to find your personal interests, which can provide you the best customized content for domain improvement. </h4>
+            <br/>
+            <br/>
             <button type="submit" class="btn btn-outline-success" onclick="redirect1()">For Parents / Mentors</button><br><br>
             <button type="submit" class="btn btn-outline-warning" onclick="redirect2()">For the Mentally Challenged persons</button>
         </center>

@@ -1,3 +1,4 @@
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -21,12 +22,42 @@
    			</ul> -->
    			<ul class="navbar-nav ml-auto">					
    				<!-- ml-auto pushes items in right in BS4 -->
-    			<li class="nav-item">
-      				<a class="nav-link" href="register.php">Register</a>
-   			 	</li>
-   			 	<li class="nav-item">
-   			 		<a class="nav-link" href="login.php">Login</a>
-   			 	</li>
+    			
+            <?php
+                if(isset($_SESSION['specialperson']))
+                {
+                  echo'<li class="nav-item">
+                  <a class="nav-link" href="profile.php">Profile</a>
+                  </li>';
+                }
+                else if(isset($_SESSION['teacher']))
+                {
+                  echo'<li class="nav-item">
+                  <a class="nav-link" href="t-profile.php">Profile</a>
+                  </li>';
+                }
+                else
+                {
+              echo'<li class="nav-item">
+                  <a class="nav-link" href="register.php">Register</a>
+                  </li>';
+                
+                }
+
+              if(isset($_SESSION['specialperson']) or isset($_SESSION['teacher']))
+                {
+                  echo'<li class="nav-item">
+                  <a class="nav-link" href="logout.php">Logout</a>
+                  </li>';
+                }
+                else
+                {
+                    echo'<li class="nav-item">
+                  <a class="nav-link" href="login.php">Login</a>
+                  </li>';
+                }
+              ?>
+   			 	
    			</ul>
 		</nav>
 	</div>

@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 			require_once ('header.php');
 ?>
 
@@ -55,7 +58,7 @@
     </body>
     <script>
         function redirect() {
-            location.replace("register.php");
+            location.replace("survey.php");
         }
     </script>
 

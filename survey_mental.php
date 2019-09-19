@@ -1,5 +1,39 @@
 <?php
 			require_once ('header.php');
+                if (isset($_POST['submit'])){
+                $name_user = mysqli_real_escape_string($link, $_POST['name']);
+                $age = mysqli_real_escape_string($link, $_POST['age']);
+                $gender= mysqli_real_escape_string($link, $_POST['gender']);
+                $email = mysqli_real_escape_string($link, $_POST['email']);
+                $disability = mysqli_real_escape_string($link, $_POST['disability']);
+                $issues = mysqli_real_escape_string($link, $_POST['issues']);
+                $interest = mysqli_real_escape_string($link, $_POST['interest']);
+                $problems = mysqli_real_escape_string($link, $_POST['problems']);
+                $comments = mysqli_real_escape_string($link, $_POST['comments']);
+            
+
+            // Escape user inputs for security
+$ppid  = $_SESSION['pid'];
+    // attempt insert query execution
+    $sql = "INSERT INTO survey_mental VALUES ('$ppid', '$name_user', '$age', '$gender', '$email', '$interest', '$disability', '$issues', '$problems', '$comments');";
+    $result = mysqli_query($link, $sql) or die(mysqli_error());
+    if($result){
+        ?>
+                    <script type="text/javascript">
+    alert('Survey complete, You just got 10 points');
+    window.location='profile.php';
+    </script>
+    <?php
+    } 
+    else{
+            ?>
+                    <script type="text/javascript">
+    alert('There was a problem, please try again');
+    window.location='profile.php';
+    </script>
+    <?php
+    }
+ }
 ?>
 
     <html lang="en">
@@ -45,6 +79,9 @@
                     <span style="margin-right: 40px;"><b>4. Your Email</b> </span>
                     <input type="email" name="email" id="email" required><br><br>
 
+                    <span style="margin-right: 40px;"><b>4. Your Interest</b> </span>
+                    <input type="text" name="interest" id="email" required><br><br>
+
                     <span style="margin-right: 40px;"><b>5. Could you briefly describe your disability/ies</b></span><br><br>
                     <textarea type="textarea" name="disability" id="disability"></textarea><br><br>
 
@@ -53,12 +90,12 @@
                     <input type="radio" name="issues" id="issues" value="No">No<br><br>
 
                     <span><b>7. If so, what sort of problems were they? Tick any that apply</b></span><br><br>
-                    <input type="checkbox" name="problems"> Depression&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="problems"> Self-Harming&nbsp;&nbsp;
-                    <input type="checkbox" name="problems"> Hyperactivity<br><br>
-                    <input type="checkbox" name="problems"> Behavioural Problems&nbsp;&nbsp;
-                    <input type="checkbox" name="problems"> Sleep Problems&nbsp;&nbsp;
-                    <input type="checkbox" name="problems"> Anxiety&nbsp;<br><br>
+                    <input type="checkbox" name="problems" value="Depression"> Depression&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="problems" value="Self-Harming"> Self-Harming&nbsp;&nbsp;
+                    <input type="checkbox" name="problems" value="Hyperactivity"> Hyperactivity<br><br>
+                    <input type="checkbox" name="problems" value="Behavioural Problems"> Behavioural Problems&nbsp;&nbsp;
+                    <input type="checkbox" name="problems" value="Sleep Problems"> Sleep Problems&nbsp;&nbsp;
+                    <input type="checkbox" name="problems" value="Anxiety"> Anxiety&nbsp;<br><br>
                     <span style="margin-right: 10x;"> Other, Please Specify</span><br><br>
                     <textarea type="textarea" name="problems"></textarea><br><br>
 
